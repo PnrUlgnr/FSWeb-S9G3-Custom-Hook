@@ -1,10 +1,12 @@
 import { useState } from "react";
-
+import { localStorageKullan } from "./localStorageKullan";
 export function geceModuAc(initialValue) {
-  const [geceModu, setGeceModu] = useState(initialValue);
+  const [storage, setStorage] = localStorageKullan("geceModu", initialValue);
+
   function updateGeceModu(value) {
-    setGeceModu(value);
+    setStorage(value);
   }
 
-  return [geceModu, updateGeceModu];
+  return [storage, updateGeceModu];
 }
+//Bir state de tutmak yerine localstorage da tuttuk.
